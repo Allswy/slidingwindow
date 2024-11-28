@@ -1,12 +1,12 @@
 # 一个TCP滑动窗口演示程序
 ## 介绍
-$slide\_window.py$ 是一个TCP滑动窗口演示程序，使用 $matplotlib$ 库进行图像绘制，可以模拟TCP协议的滑动窗口协议。  
+slide\_window.py 是一个TCP滑动窗口演示程序，使用 $matplotlib$ 库进行图像绘制，可以模拟TCP协议的滑动窗口协议。  
 运行时，需要确保 $matplotlib$ 库已经安装:
 ```python
 pip install matplotlib
 ```
 ## 用法
-在 $ plot\_tcp\_with\_rectangle\_movement $ 函数的开头有参数设置部分，可以根据需要修改参数。
+在 plot\_tcp\_with\_rectangle\_movement 函数的开头有参数设置部分，可以根据需要修改参数。
 ```python
 # 参数
 total_packets = 40 # 总报文数
@@ -33,7 +33,7 @@ ack_status = [False] * (total_packets + window_size) # 确认状态
 ani = FuncAnimation(fig, update, frames= 20 * total_packets + 10000, interval=data_transfer_time * 1000, repeat=False)
 ```
 ### 框架绘制
-在 $plot\_tcp\_with\_rectangle\_movement$ 函数中，首先绘制了接收方和发送方的缓存区，以及相关的状态信息。
+在 plot\_tcp\_with\_rectangle\_movement 函数中，首先绘制了接收方和发送方的缓存区，以及相关的状态信息。
 ```python
 # 绘制背景
 ax.clear()
@@ -73,8 +73,8 @@ if fg:
 frame1 += 1
 ```
 ### 窗口绘制过程
-用 $window\_size$ 参数控制窗口大小，窗口大小决定了滑动窗口协议的窗口大小。  
-$window\_start$ 和 $recv\_window\_start$ 分别表示发送方窗口的起始位置和接收方窗口的起始位置，窗口的大小由 $window\_size$ 参数决定。  
+用 window\_size 参数控制窗口大小，窗口大小决定了滑动窗口协议的窗口大小。  
+window\_start 和 recv\_window\_start 分别表示发送方窗口的起始位置和接收方窗口的起始位置，窗口的大小由 window\_size 参数决定。  
 ```python
 # 绘制窗口
 window_rect = patches.Rectangle((window_start, 2), window_size, 1, edgecolor='red', facecolor='none', linewidth=2)
@@ -111,14 +111,14 @@ for i in range(window_start, window_start + window_size):
         break
 ```
 ### 模拟报文的传输过程
-用 $moving\_packets$ 数组记录当前正在传输的报文，每一帧都会更新该数组。
+用 moving\_packets 数组记录当前正在传输的报文，每一帧都会更新该数组。
 如果报文颜色为蓝色，则表示该报文正在发送，则向下移动；如果报文颜色为绿色，则表示该报文已经接收，则向上移动。  
 每次随机生成一个数字，如果数字小于丢包率，则认为该报文丢失，则跳过该帧。  
-如果没有发生丢包，则更新报文的位置，并存入 $new\_moving\_packets$ 数组。  
+如果没有发生丢包，则更新报文的位置，并存入 new\_moving\_packets 数组。  
 如果报文到达接收方窗口，则将该报文的接收状态设置为 $True$。  
 如果报文到达发送方窗口，则将该报文的确认状态设置为 $True$，并将该报文的超时计时器设置为 $-1$。  
-遍历一遍 $moving\_packets$ 数组，将其中的报文移动到新的位置，并更新 $new\_moving\_packets$ 数组。  
-最后清空 $moving\_packets$ 数组，将 $new\_moving\_packets$ 数组中的报文加入到 $moving\_packets$ 数组。
+遍历一遍 moving\_packets 数组，将其中的报文移动到新的位置，并更新 new\_moving\_packets 数组。  
+最后清空 moving\_packets 数组，将 new\_moving\_packets 数组中的报文加入到 moving\_packets 数组。
 ```python
 new_moving_packets = []
 # 模拟报文移动过程
@@ -149,7 +149,7 @@ moving_packets.clear()
 moving_packets.extend(new_moving_packets)
 ```
 ### 窗口位置更新
-窗口位置由 $window\_start$ 和 $recv\_window\_start$ 两个变量控制，每一帧都会更新窗口位置。  
+窗口位置由 window\_start 和 recv\_window\_start 两个变量控制，每一帧都会更新窗口位置。  
 每次检查窗口开始的第一个报文是否被确认，如果确认，则窗口开始位置向后移动。  
 ````python
 # 移动窗口
