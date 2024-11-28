@@ -6,7 +6,7 @@ $slide\_window.py$ 是一个TCP滑动窗口演示程序，使用 $matplotlib$ �
 pip install matplotlib
 ```
 ## 用法
-在$plot\_tcp\_with\_rectangle\_movement$函数的开头有参数设置部分，可以根据需要修改参数。
+在 $ plot\_tcp\_with\_rectangle\_movement $ 函数的开头有参数设置部分，可以根据需要修改参数。
 ```python
 # 参数
 total_packets = 40 # 总报文数
