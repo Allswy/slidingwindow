@@ -1,6 +1,6 @@
 # 一个TCP滑动窗口演示程序
 ## 介绍
-slide\_window.py 是一个TCP滑动窗口演示程序，使用 $matplotlib$ 库进行图像绘制，可以模拟TCP协议的滑动窗口。  
+slide\_window.py 是一个TCP滑动窗口演示程序，使用 $matplotlib$ 库进行图像绘制。  
 运行时，需要确保 $matplotlib$ 库已经安装:
 ```python
 pip install matplotlib
