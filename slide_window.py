@@ -85,6 +85,7 @@ def plot_tcp_with_rectangle_movement():
                 ack_sent_status[i] = False
                 timer[i] = 0
 
+        new_moving_packets = []
         # 发送报文
         for i in range(window_start, window_start + window_size):
             if not sent_status[i]:
@@ -93,7 +94,6 @@ def plot_tcp_with_rectangle_movement():
                 sent_status[i] = True 
                 break
 
-        new_moving_packets = []
         # 模拟报文移动过程
         for x, y, color in moving_packets:
             if color == 'royalblue':# 蓝色报文向下移动
